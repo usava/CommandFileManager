@@ -5,12 +5,13 @@ import java.io.*;
 public class OpenFileTxt extends FileManager implements InterfaceOpenable{
 
    private File file;
-   //private String text;
+   public String text;
 
     public OpenFileTxt(File file) {
         super(file);
         interfaceOpenable = this;
         this.file = file;
+
     }
 
     @Override
@@ -31,7 +32,7 @@ public class OpenFileTxt extends FileManager implements InterfaceOpenable{
                 }while(data != -1);
 
                 setText(line.toString());
-
+                this.text = line.toString();
             }catch (IOException ex){
                 ex.printStackTrace();
             }finally{
